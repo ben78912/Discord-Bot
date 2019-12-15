@@ -1,21 +1,15 @@
 var Discord = require('discord.js');
-var logger = require('winston');
 var auth = require('./auth.json');
 // Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(new logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'debug';
 // Initialize Discord Bot
 var bot = new Discord.Client();
+var today = new Date();
 
 bot.on('ready', () => {
     var time = today.getHours() + ':' + today.getMinutes();
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.user.username + ' - (' + bot.user.id + ')');
-    logger.info('Time at: ' + time);
+    console.log('Connected');
+    console.log('Logged in as: ' + bot.user.username + ' - (' + bot.user.id + ')');
+    console.log('Time at: ' + time);
     bot.user.setActivity("");
 });
 
