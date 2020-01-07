@@ -14,6 +14,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', member => {
+    // Code that gets executed when a new member joins the channel
 });
 
 bot.on('message', async message => {
@@ -22,6 +23,9 @@ bot.on('message', async message => {
     if(message.author.bot) return;
     // 
     var lower = message.content.toLowerCase();
+
+    // It's a good idea to choose a keyword that starts your bot commands ie. !, ;;
+    message.channel.send('Hello World!');
 });
 
 bot.login(auth.token);
